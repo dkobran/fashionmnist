@@ -57,13 +57,13 @@ os.makedirs(MODEL_DIR)
 export_path = os.path.join(MODEL_DIR)
 print('export_path = {}\n'.format(export_path))
 
-  tf.saved_model.simple_save(
-     keras.backend.get_session(),
-     export_path,
-     inputs={'input_image': model.input},
-     outputs={t.name:t for t in model.outputs})
+tf.saved_model.simple_save(
+   keras.backend.get_session(),
+   export_path,
+   inputs={'input_image': model.input},
+   outputs={t.name:t for t in model.outputs})
 
-  print('\nModel saved to ' + MODEL_DIR)
+print('\nModel saved to ' + MODEL_DIR)
 
 # if not os.path.exists(MODEL_DIR):
 #     os.makedirs(MODEL_DIR)
