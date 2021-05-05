@@ -15,7 +15,7 @@ test_images = test_images.reshape(test_images.shape[0], 28, 28, 1)
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
-SERVE_URL=os.getenv("SERVE_URL")
+SERVE_URL="SERVE_URL" #Replace this with your endpoint url e.g. "https://clr3bz50m.paperspacegradient.com/model-serving/desbs8epkqrql59:predict"
 
 data = json.dumps({"signature_name": "serving_default", "instances": test_images[0:5].tolist()})
 headers = {"content-type": "application/json"}
