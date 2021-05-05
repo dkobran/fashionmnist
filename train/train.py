@@ -53,7 +53,7 @@ test_loss, test_acc = model.evaluate(test_images, test_labels)
 print('\nModel accuracy: {}'.format(test_acc))
 
 #Save model 
-os.makedirs(MODEL_DIR)
+# os.makedirs(MODEL_DIR)
 export_path = os.path.join(MODEL_DIR)
 print('export_path = {}\n'.format(export_path))
 
