@@ -7,13 +7,14 @@ import argparse
 tf.logging.set_verbosity(tf.logging.ERROR)
 
 #Parse input parameters
-parser = argparse.ArgumentParser(description='Fashion MNIST Keras Model')
-parser.add_argument('--modelPath', type=str, dest='MODEL_DIR', help='location to store the model artifacts')
+#parser = argparse.ArgumentParser(description='Fashion MNIST Keras Model')
+#parser.add_argument('--modelPath', type=str, dest='MODEL_DIR', help='location to store the model artifacts')
 #parser.add_argument('--version', type=str, dest='VERSION', default="1", help='model version')
-args = parser.parse_args()
+#args = parser.parse_args()
+MODEL_DIR = os.path.abspath(os.environ.get('MODEL_DIR', os.getcwd() + '/models'))
 
 #Parameters
-MODEL_DIR = args.MODEL_DIR
+#MODEL_DIR = args.MODEL_DIR
 #VERSION = args.VERSION
 
 #Download Fashion MNIST dataset and split it for train and test
