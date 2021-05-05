@@ -9,11 +9,12 @@ tf.logging.set_verbosity(tf.logging.ERROR)
 #Parse input parameters
 parser = argparse.ArgumentParser(description='Fashion MNIST Keras Model')
 parser.add_argument('--modelPath', type=str, dest='MODEL_DIR', help='location to store the model artifacts')
-parser.add_argument('--version', type=str, dest='VERSION', default="1", help='model version')
+#parser.add_argument('--version', type=str, dest='VERSION', default="1", help='model version')
 args = parser.parse_args()
 
+#Parameters
 MODEL_DIR = args.MODEL_DIR
-VERSION = args.VERSION
+#VERSION = args.VERSION
 
 #Download Fashion MNIST dataset and split it for train and test
 fashion_mnist = keras.datasets.fashion_mnist
@@ -53,7 +54,7 @@ print('\nModel accuracy: {}'.format(test_acc))
 #Save model 
 if not os.path.exists(MODEL_DIR):
     os.makedirs(MODEL_DIR)
-    export_path = os.path.join(MODEL_DIR, VERSION)
+    export_path = os.path.join(MODEL_DIR)
     print('export_path = {}\n'.format(export_path))
 
     tf.saved_model.simple_save(
