@@ -53,8 +53,7 @@ test_loss, test_acc = model.evaluate(test_images, test_labels)
 print('\nModel accuracy: {}'.format(test_acc))
 
 #Save model 
-if not os.path.exists(MODEL_DIR):
-    os.makedirs(MODEL_DIR)
+os.makedirs(MODEL_DIR)
     export_path = os.path.join(MODEL_DIR)
     print('export_path = {}\n'.format(export_path))
 
@@ -65,6 +64,19 @@ if not os.path.exists(MODEL_DIR):
         outputs={t.name:t for t in model.outputs})
 
     print('\nModel saved to ' + MODEL_DIR)
-else:
-    print('\nExisting model found at ' + MODEL_DIR)
-    print('\nDid not overwrite old model. Run the job again with a different location to store the model')
+
+# if not os.path.exists(MODEL_DIR):
+#     os.makedirs(MODEL_DIR)
+#     export_path = os.path.join(MODEL_DIR)
+#     print('export_path = {}\n'.format(export_path))
+
+#     tf.saved_model.simple_save(
+#         keras.backend.get_session(),
+#         export_path,
+#         inputs={'input_image': model.input},
+#         outputs={t.name:t for t in model.outputs})
+
+#     print('\nModel saved to ' + MODEL_DIR)
+# else:
+#     print('\nExisting model found at ' + MODEL_DIR)
+#     print('\nDid not overwrite old model. Run the job again with a different location to store the model')
